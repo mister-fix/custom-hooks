@@ -1,12 +1,15 @@
 import React from "react";
+import useCounter from "./hooks/useCounter";
 
 const App = () => {
+	const counter = useCounter();
+
 	return (
 		<div>
-			<div>0</div>
-			<button onClick={() => console.log("plus")}>plus</button>
-			<button onClick={() => console.log("minus")}>minus</button>
-			<button onClick={() => console.log("zero")}>zero</button>
+			<div>{counter.value}</div>
+			<button onClick={counter.increase}>plus</button>
+			<button onClick={counter.decrease}>minus</button>
+			<button onClick={counter.zero}>zero</button>
 		</div>
 	);
 };
