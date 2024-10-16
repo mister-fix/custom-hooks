@@ -3,37 +3,28 @@ import useField from "./hooks/useField";
 
 const App = () => {
 	const name = useField("text");
-	const birthdate = useField("date");
+	const born = useField("date");
 	const height = useField("number");
 
 	return (
 		<div>
 			<form>
 				name:
-				<input
-					type="text"
-					value={name.value}
-					onChange={name.onChange}
-				/>
+				<input {...name} />
 				<br />
 				birth date:
-				<input
-					type="date"
-					value={birthdate.value}
-					onChange={birthdate.onChange}
-				/>
+				<input {...born} />
 				<br />
 				height:
 				<input
-					type="number"
-					value={height.value}
-					onChange={height.onChange}
+					{...height}
+					step="0.1"
 				/>
 			</form>
 
 			<div style={{ marginTop: "20px" }}>
 				name: {name.value} <br />
-				birthdate: {birthdate.value} <br />
+				born: {born.value} <br />
 				height: {height.value} ft
 			</div>
 		</div>
